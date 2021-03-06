@@ -11,7 +11,7 @@ spl_autoload_register(
 
 // Got route without slash
 $route = substr($_SERVER['REQUEST_URI'], 1) ?? '';
-$routes = require __DIR__ . '/core/routes.php';
+$routes = require __DIR__ . '/src/core/routes.php';
 
 $isRouteFound = false;
 
@@ -27,7 +27,12 @@ foreach($routes as $routePattern => $routeCallback)
 
 if(!$isRouteFound)
 {
-    echo 'Page wasn\'t found';
+    $response = [
+        'html' => ''
+    ];
+    $response['html'] .= '<p>Страница не была найдена</p>';
+    $response['html'] .= '<a class="" href="#" onclick="window.history.back()">Назад</a>';
+    echo $response['html'];
     return;
 }
 

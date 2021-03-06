@@ -1,12 +1,14 @@
 <?php
 
 
-namespace MVC\Models\Articles;
+namespace mvc\Models\Articles;
 
-use MVC\Models\Users\User;
+use mvc\Models\Model;
+use mvc\Models\Users\User;
 
-class Article
+class Article extends Model
 {
+    public static string $tableName = 'articles';
     private string $title;
     private string $text;
     private User $author;
