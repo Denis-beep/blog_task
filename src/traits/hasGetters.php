@@ -26,9 +26,7 @@ trait hasGetters
                         return $this->$prop;
                     };
                 } else {
-                    $this->$getter = function () use ($prop) {
-                        return '';
-                    };
+                    $this->$prop = '';
                 }
             }
         }
