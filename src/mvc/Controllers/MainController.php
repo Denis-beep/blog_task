@@ -3,6 +3,7 @@
 namespace mvc\Controllers;
 
 use core\Db\Db;
+use mvc\Models\Users\User;
 use mvc\View\View;
 use mvc\Models\Articles\Article;
 
@@ -10,19 +11,12 @@ use mvc\Models\Articles\Article;
  * Class MainController
  * @package mvc\Controllers
  */
-class MainController
+class MainController extends CoreController
 {
 
     /**
-     * @var View
+     * A blog main page.
      */
-    private View $view;
-
-    public function __construct()
-    {
-        $this->view = new View();
-    }
-
     public function main()
     {
         $articles = Article::findAll();

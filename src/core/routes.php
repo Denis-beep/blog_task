@@ -2,9 +2,10 @@
 
 
 use mvc\Controllers\MainController;
+use mvc\Controllers\UsersController;
 
 return [
         '~^$~' => [MainController::class, 'main'],
-    '~^users/(\d+)$~' => [MainController::class, 'sayHello'],
-    '~^users/(.*)$~' => [MainController::class, 'main'],
+    '~^register$~' => [UsersController::class, 'register'],
+
 ];

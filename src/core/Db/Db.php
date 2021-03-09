@@ -6,12 +6,26 @@ use exceptions\DbException;
 use mvc\View\View;
 use PDO;
 
+/**
+ * Class Db
+ * @package core\Db
+ */
 class Db
 {
+    /**
+     * @var
+     */
     private static $instance;
 
+    /**
+     * @var PDO
+     */
     private PDO $pdo;
 
+    /**
+     * Db constructor.
+     * @throws DbException
+     */
     private function __construct()
     {
         try {
@@ -26,7 +40,13 @@ class Db
         }
     }
 
-    public function query(string $sql, array $params = []): ?array
+    /**
+     * @param string $sql
+     * @param array $params
+     * @param string $className
+     * @return array|null
+     */
+    public function query(string $sql, string $className = '\stdClass', array $params = []): ?array
     {
         $sth = $this->pdo->prepare($sql);
         $result = $sth->execute($params);
@@ -35,9 +55,12 @@ class Db
             return null;
         }
 
-        return $sth->fetchAll();
+        return $sth->fetchAll(PDO::FETCH_CLASS, $className);
     }
 
+    /**
+     * @return static|null
+     */
     public static function getInstance(): ?self
     {
         if (self::$instance === null) {

@@ -1,21 +1,43 @@
 <?php
 
-namespace MVC\Models\Users;
+namespace mvc\Models\Users;
 
-class User
+use mvc\Controllers\CoreController;
+use mvc\Models\Model;
+use traits\hasGetters;
+
+/**
+ * Class User
+ * @package mvc\Models\Users
+ */
+class User extends Model
 {
-    private string $name;
+    use hasGetters;
 
-    public function __construct(string $name)
-    {
-        $this->name = $name;
-    }
+    protected static string $tableName = 'users';
 
     /**
- * @return string
- */
-    public function getName(): string
-    {
-        return $this->name;
-    }
+     * @var string
+     */
+    protected string $nickname;
+    /**
+     * @var string
+     */
+    protected string $email;
+    /**
+     * @var string
+     */
+    protected string $isConfirmed;
+    /**
+     * @var string
+     */
+    protected string $role;
+    /**
+     * @var string
+     */
+    protected string $isBanned;
+    /**
+     * @var string
+     */
+    protected string $createdAt;
 }

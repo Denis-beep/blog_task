@@ -4,34 +4,23 @@
 namespace mvc\Models\Articles;
 
 use mvc\Models\Model;
-use mvc\Models\Users\User;
+use traits\hasGetters;
 
 class Article extends Model
 {
-    public static string $tableName = 'articles';
-    private string $title;
-    private string $text;
-    private User $author;
+    use hasGetters;
 
-    public function __construct(string $title, string $text, User $author)
-    {
-        $this->title = $title;
-        $this->text = $text;
-        $this->author = $author;
-    }
+    protected static string $tableName = 'articles';
 
-    public function getTitle() :string
-    {
-        return $this->title;
-    }
+    /** @var string */
+    protected string $name;
 
-    public function getText() :string
-    {
-        return $this->text;
-    }
+    /** @var string */
+    protected string $text;
 
-    public function getAuthor() :User
-    {
+    /** @var int */
+    protected int $authorId;
 
-    }
+    /** @var string */
+    protected string $createdAt;
 }
