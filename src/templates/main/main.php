@@ -15,6 +15,7 @@ include __DIR__ . '/../additional/header.php'; ?>
             <br>
                 <?= $article->getAuthorId(); ?>
             <br>
+        <?= $article->getStatus(); ?>
         <hr>
             <?php endforeach; ?>
         </div>

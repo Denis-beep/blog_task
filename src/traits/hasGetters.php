@@ -17,15 +17,26 @@ trait hasGetters
     public function __construct()
     {
         $obj = new \ReflectionClass($this);
-        $props = $obj->getProperties();
-
-        foreach($props as $prop) {
-            $propName = $prop->getName();
-            $propString = ucfirst($prop->getName());
-            $funcName =  'get' . $propString;
-            $this->$funcName = function() use ($propName) {
-                return $this->$propName;
-            };
+        try {
+            $fillable = $obj->getProperty('fillable')->getValue($this);
+            foreach ($fillable as $prop) {
+                $getter = 'get' . ucfirst($prop);
+                if (property_exists($this, $prop)) {
+                    $this->$getter = function () use ($prop) {
+                        return $this->$prop;
+                    };
+                } else {
+                    $this->$prop = '';
+                }
+            }
         }
+        catch (\ReflectionException $e) {
+            if($_ENV['app_debug'] == true)
+            {
+                echo $e->getCode();
+                echo $e->getMessage();
+            }
+        }
+
     }
 }

@@ -29,6 +29,11 @@ abstract class Model
      */
     protected static string $tableName;
 
+    /**
+     * @var array
+     */
+    public array $fillable;
+
 
     /**
      * @return array|null

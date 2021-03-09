@@ -16,6 +16,15 @@ class User extends Model
 
     protected static string $tableName = 'users';
 
+    public array $fillable = [
+        'nickname',
+        'email',
+        'isConfirmed',
+        'role',
+        'isBanned',
+        'createdAt'
+    ];
+
     /**
      * @var string
      */
