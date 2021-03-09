@@ -1,9 +1,5 @@
 {
-  "require": {
-    "ext-mbstring": "*",
-    "ext-xdebug": "*",
-    "ext-pdo": "*"
-  },
-  "name": "amaranth/test-project",
-  "description": ""
+    "require": {
+        "vlucas/phpdotenv": "^5.3"
+    }
 }

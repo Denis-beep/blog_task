@@ -14,12 +14,11 @@ class Db
 
     private function __construct()
     {
-        $options = (require __DIR__ . '/../settings.php')['db'];
         try {
             $this->pdo = new PDO(
-                'mysql:host=' . $options['host'] . ';dbname=' . $options['dbname'],
-                $options['user'],
-                $options['password']
+                'mysql:host=' . $_ENV['db_host'] . ';dbname=' . $_ENV['db_database'],
+                $_ENV['db_user'],
+                $_ENV['db_password']
             );
             $this->pdo->exec('SET NAMES UTF8');
         } catch (\PDOException $e) {

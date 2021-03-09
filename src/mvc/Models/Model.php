@@ -8,6 +8,10 @@ use core\Db\Db;
 use interfaces\SqlQueryBuilder;
 
 
+/**
+ * Class Model
+ * @package mvc\Models
+ */
 abstract class Model
 {
     protected static string $tableName;
@@ -37,8 +41,7 @@ abstract class Model
 
     private static function getBuilder(): SqlQueryBuilder
     {
-        $options = (require __DIR__ . '/../../core/settings.php')['db'];
-        $con = ucfirst(strtolower($options['db_connection']));
+        $con = ucfirst(strtolower($_ENV['db_service']));
         switch ($con)
         {
             case ('Mysql'):
