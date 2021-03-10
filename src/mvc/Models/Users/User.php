@@ -14,6 +14,9 @@ class User extends Model
 {
     use hasGetters;
 
+    /** @var string
+     *  Переменная для позднего статического связывания таблиц.
+     */
     protected static string $tableName = 'users';
 
     public array $fillable = [

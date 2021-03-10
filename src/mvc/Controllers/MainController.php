@@ -19,7 +19,7 @@ class MainController extends CoreController
      */
     public function main()
     {
-        $articles = Article::findAll();
+        $articles = User::findAll();
         $this->view->template('main/main', ['articles'=> $articles]);
     }
 }

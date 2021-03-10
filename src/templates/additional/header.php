@@ -13,7 +13,7 @@
     <nav class="header__nav">
         <a href="/">Главная</a>
         <a href="/articles">Статьи</a>
-        <a href="#">Войти</a>
+        <a href="users/register">Войти</a>
         <a href="#">Регистрация</a>
     </nav>
 </header>

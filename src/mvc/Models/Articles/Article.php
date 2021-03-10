@@ -14,7 +14,7 @@ class Article extends Model
 {
     use hasGetters;
 
-    /**
+    /** An array for listing the properties available to getters.
      * @var array|string[]
      */
     public array $fillable = [
@@ -26,11 +26,15 @@ class Article extends Model
     ];
 
     /**
+     * Late static linking.
+     * Pass the table name through static inheritance.
      * @var string
      */
     protected static string $tableName = 'articles';
 
-    /** @var string */
+    /**
+     * @var string
+     */
     protected string $name;
 
     /** @var string */
@@ -42,8 +46,6 @@ class Article extends Model
     /** @var string */
     protected string $createdAt;
 
-    /**
-     * @var string
-     */
+    /** @var string */
     protected string $status;
 }

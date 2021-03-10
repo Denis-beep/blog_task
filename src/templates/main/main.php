@@ -7,15 +7,12 @@ include __DIR__ . '/../additional/header.php'; ?>
         <h2 class="articles title--md">Все записи</h2>
         <div class="articles__list">
         <?php foreach($articles as $article): ?>
-                <?= $article->getName(); ?>
-        <br>
-                <?= $article->getText();?>
+                <?= $article->getIsBanned();?>
             <br>
                 <?= $article->getCreatedAt(); ?>
             <br>
-                <?= $article->getAuthorId(); ?>
+                <?= $article->getEmail(); ?>
             <br>
-        <?= $article->getStatus(); ?>
         <hr>
             <?php endforeach; ?>
         </div>

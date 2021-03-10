@@ -13,7 +13,7 @@ class View
         $this->templatesPath = $templatesPath;
     }
 
-    public function template(string $templateName, array $vars = [])
+    public function template(string $templateName, array $vars = [], int $code = 200)
     {
         extract($vars);
 
@@ -21,6 +21,8 @@ class View
         include $this->templatesPath . '/' . $templateName . '.php';
         $buffer = ob_get_contents();
         ob_end_clean();
+
+        http_response_code($code);
 
         echo $buffer;
     }
