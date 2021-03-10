@@ -1,20 +1,7 @@
 <?php
-use Dotenv\Dotenv;
 
-if(file_exists(__DIR__ . '/vendor/autoload.php'))
-{
-    include __DIR__ . '/vendor/autoload.php';
-
-    $dotenv = \Dotenv\Dotenv::createImmutable(__DIR__);
-    $dotenv->load();
-}
-
-if($_ENV['app_debug'] == true)
-{
-    ini_set('display_errors', 1);
-    ini_set('display_startup_errors', 1);
-}
-
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
 
 // Autoloader
 spl_autoload_register(

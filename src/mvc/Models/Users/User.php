@@ -25,7 +25,7 @@ class User extends Model
         'isConfirmed',
         'role',
         'isBanned',
-        'createdAt'
+        'createdAt',
     ];
 
     /**

@@ -13,7 +13,6 @@ include __DIR__ . '/../additional/header.php'; ?>
             <br>
                 <?= $article->getEmail(); ?>
             <br>
-        <?= $article->getStatus(); ?>
         <hr>
             <?php endforeach; ?>
         </div>

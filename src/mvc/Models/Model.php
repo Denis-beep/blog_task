@@ -81,7 +81,8 @@ abstract class Model
      */
     private static function getBuilder(): SqlQueryBuilder
     {
-        $con = ucfirst(strtolower($_ENV['db_service']));
+        $settings = (require __DIR__ . '/../../core/settings.php')['db'];
+        $con = ucfirst(strtolower($settings['db_service']));
         switch ($con)
         {
             case ('Mysql'):
